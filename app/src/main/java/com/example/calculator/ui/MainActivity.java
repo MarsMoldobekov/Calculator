@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.calculator.R;
 import com.example.calculator.domain.CalculatorImplementation;
-import com.example.calculator.enums.DigitButtonTypes;
 import com.example.calculator.presenter.CalculatorPresenter;
 import com.example.calculator.ui.listeners.OnDigitButtonsClickListener;
+import com.example.calculator.ui.listeners.OnDotButtonClickListener;
 import com.example.calculator.ui.listeners.OnEqualButtonClickListener;
 import com.example.calculator.ui.listeners.OnEraseButtonClickListener;
 import com.example.calculator.ui.listeners.OnOperationButtonsClickListener;
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textView = findViewById(R.id.textView);
 
         CalculatorPresenter presenter = new CalculatorPresenter(
                 this, new CalculatorImplementation()
@@ -30,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
                 new OnDigitButtonsClickListener(presenter);
         final OnOperationButtonsClickListener onOperationButtonsClickListener =
                 new OnOperationButtonsClickListener(presenter);
-
-        textView = findViewById(R.id.textView);
 
         findViewById(R.id.button0).setOnClickListener(onDigitButtonsClickListener);
         findViewById(R.id.button1).setOnClickListener(onDigitButtonsClickListener);
@@ -56,56 +55,10 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         findViewById(R.id.button_equal).setOnClickListener(
                 new OnEqualButtonClickListener(presenter)
         );
-    }
 
-    @Override
-    public void displayDigit(DigitButtonTypes type) {
-        String text = textView.getText().toString();
-
-        switch (type) {
-            case ZERO:
-                text = text.concat("0");
-                break;
-            case ONE:
-                text = text.concat("1");
-                break;
-            case TWO:
-                text = text.concat("2");
-                break;
-            case THREE:
-                text = text.concat("3");
-                break;
-            case FOUR:
-                text = text.concat("4");
-                break;
-            case FIVE:
-                text = text.concat("5");
-                break;
-            case SIX:
-                text = text.concat("6");
-                break;
-            case SEVEN:
-                text = text.concat("7");
-                break;
-            case EIGHT:
-                text = text.concat("8");
-                break;
-            case NINE:
-                text = text.concat("9");
-                break;
-        }
-
-        textView.setText(text);
-    }
-
-    @Override
-    public void erase() {
-        textView.setText("");
-    }
-
-    @Override
-    public void displayOperation(String expr) {
-        textView.setText(expr);
+        findViewById(R.id.button_dot).setOnClickListener(
+                new OnDotButtonClickListener(presenter)
+        );
     }
 
     @Override

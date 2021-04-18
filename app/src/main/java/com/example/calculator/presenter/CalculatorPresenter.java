@@ -32,71 +32,64 @@ public class CalculatorPresenter {
     public void onDigitButtonsPressed(DigitButtonTypes type) {
         switch (type) {
             case ZERO:
-                calculatorView.displayDigit(ZERO);
-                calculator.onDigitButtonsPressed(ZERO);
+                calculatorView.display(calculator.onDigitButtonsPressed(ZERO));
                 break;
             case ONE:
-                calculatorView.displayDigit(ONE);
-                calculator.onDigitButtonsPressed(ONE);
+                calculatorView.display(calculator.onDigitButtonsPressed(ONE));
                 break;
             case TWO:
-                calculatorView.displayDigit(TWO);
-                calculator.onDigitButtonsPressed(TWO);
+                calculatorView.display(calculator.onDigitButtonsPressed(TWO));
                 break;
             case THREE:
-                calculatorView.displayDigit(THREE);
-                calculator.onDigitButtonsPressed(THREE);
+                calculatorView.display(calculator.onDigitButtonsPressed(THREE));
                 break;
             case FOUR:
-                calculatorView.displayDigit(FOUR);
-                calculator.onDigitButtonsPressed(FOUR);
+                calculatorView.display(calculator.onDigitButtonsPressed(FOUR));
                 break;
             case FIVE:
-                calculatorView.displayDigit(FIVE);
-                calculator.onDigitButtonsPressed(FIVE);
+                calculatorView.display(calculator.onDigitButtonsPressed(FIVE));
                 break;
             case SIX:
-                calculatorView.displayDigit(SIX);
-                calculator.onDigitButtonsPressed(SIX);
+                calculatorView.display(calculator.onDigitButtonsPressed(SIX));
                 break;
             case SEVEN:
-                calculatorView.displayDigit(SEVEN);
-                calculator.onDigitButtonsPressed(SEVEN);
+                calculatorView.display(calculator.onDigitButtonsPressed(SEVEN));
                 break;
             case EIGHT:
-                calculatorView.displayDigit(EIGHT);
-                calculator.onDigitButtonsPressed(EIGHT);
+                calculatorView.display(calculator.onDigitButtonsPressed(EIGHT));
                 break;
             case NINE:
-                calculatorView.displayDigit(NINE);
-                calculator.onDigitButtonsPressed(NINE);
+                calculatorView.display(calculator.onDigitButtonsPressed(NINE));
                 break;
         }
     }
 
     public void onEraseButtonPressed() {
-        calculatorView.erase();
-        calculator.onEraseButtonPressed();
+        calculatorView.display(calculator.onEraseButtonPressed());
     }
 
     public void onOperationButtonsPressed(OperationButtonTypes type) {
         switch (type) {
             case ADD:
-                calculatorView.displayOperation(calculator.onOperationButtonsPressed(ADD));
+                calculatorView.display(calculator.onOperationButtonsPressed(ADD));
                 break;
             case SUB:
-                calculatorView.displayOperation(calculator.onOperationButtonsPressed(SUB));
+                calculatorView.display(calculator.onOperationButtonsPressed(SUB));
                 break;
             case MULT:
-                calculatorView.displayOperation(calculator.onOperationButtonsPressed(MULT));
+                calculatorView.display(calculator.onOperationButtonsPressed(MULT));
                 break;
             case DIV:
-                calculatorView.displayOperation(calculator.onOperationButtonsPressed(DIV));
+                calculatorView.display(calculator.onOperationButtonsPressed(DIV));
                 break;
         }
     }
 
     public void onEqualButtonPressed() {
         calculatorView.display(calculator.calculate());
+    }
+
+    public void onDotButtonPressed() {
+        calculatorView.display(calculator.onDotButtonPressed());
     }
 }

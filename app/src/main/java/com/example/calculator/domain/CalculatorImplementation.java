@@ -14,7 +14,7 @@ public class CalculatorImplementation implements Calculator {
     }
 
     @Override
-    public void onDigitButtonsPressed(DigitButtonTypes type) {
+    public String onDigitButtonsPressed(DigitButtonTypes type) {
         switch (type) {
             case ZERO:
                 stringBuilder.append(0);
@@ -47,11 +47,14 @@ public class CalculatorImplementation implements Calculator {
                 stringBuilder.append(9);
                 break;
         }
+
+        return stringBuilder.toString();
     }
 
     @Override
-    public void onEraseButtonPressed() {
+    public String onEraseButtonPressed() {
         stringBuilder.setLength(0);
+        return stringBuilder.toString();
     }
 
     @Override
@@ -71,15 +74,40 @@ public class CalculatorImplementation implements Calculator {
     }
 
     private String addOperation(String operation) {
-        if (!isStringEmpty() && !isPreviousStringOperation()) {
+        if (isNotEmpty() && !isPreviousStringOperation()) {
             stringBuilder.append(operation);
         }
 
         return stringBuilder.toString();
     }
 
-    private boolean isStringEmpty() {
-        return stringBuilder.length() == 0;
+    @Override
+    public String onDotButtonPressed() {
+        if (isNotEmpty() && !containsDot()) {
+            stringBuilder.append(".");
+        }
+
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public String calculate() {
+        String temp = stringBuilder.toString();
+        Expression expression;
+        double result;
+
+        try {
+            stringBuilder.setLength(0);
+            result = new ExpressionBuilder(temp).build().evaluate();
+        } catch (IllegalArgumentException | ArithmeticException exception) {
+            return exception.toString();
+        }
+
+        return String.valueOf(result);
+    }
+
+    private boolean isNotEmpty() {
+        return stringBuilder.length() != 0;
     }
 
     private boolean isPreviousStringOperation() {
@@ -87,20 +115,8 @@ public class CalculatorImplementation implements Calculator {
         return temp.endsWith("+") || temp.endsWith("-") || temp.endsWith("*") || temp.endsWith("/");
     }
 
-    @Override
-    public String calculate() {
+    private boolean containsDot() {
         String temp = stringBuilder.toString();
-        String result;
-        Expression expression;
-
-        try {
-            stringBuilder.setLength(0);
-            expression = new ExpressionBuilder(temp).build();
-        } catch (IllegalArgumentException exception) {
-            return exception.toString();
-        }
-
-        result = String.valueOf(expression.evaluate());
-        return result;
+        return temp.contains(".");
     }
 }
