@@ -13,7 +13,7 @@
     <string name="dot">.</string>
     <string name="erase_sign">C</string>
     <string name="number_sign">+/-</string>
-    <string name="percentage_sign">%</string>
+    <string name="abs_sign">abs</string>
     <string name="equal_sign">=</string>
     <string name="plus_sign">+</string>
     <string name="minus_sign">-</string>
