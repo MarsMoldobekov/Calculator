@@ -55,7 +55,7 @@
         android:gravity="top|end"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="@+id/button_divide"
+        app:layout_constraintEnd_toEndOf="@+id/button_multiply"
         app:layout_constraintStart_toStartOf="@+id/button_erase"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         tools:text="There will be formulas" />
@@ -72,20 +72,6 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="@+id/button7"
         app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_divide"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_menu"
-        android:text="@string/division_sign"
-        android:textColor="@color/green"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="@+id/button_multiply"
-        app:layout_constraintStart_toStartOf="@+id/button_multiply"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -259,15 +245,15 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button0"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_menu"
         android:text="@string/zero"
         android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/button2"
-        app:layout_constraintStart_toStartOf="@id/button1"
+        app:layout_constraintEnd_toStartOf="@+id/button_dot"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -294,7 +280,21 @@
         android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_divide"
         app:layout_constraintStart_toEndOf="@+id/button_dot"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_divide"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_menu"
+        android:text="@string/division_sign"
+        android:textColor="@color/green"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_equal"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
