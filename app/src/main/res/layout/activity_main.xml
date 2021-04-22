@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -70,36 +70,8 @@
         android:textColor="@color/red"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@id/button_sqrt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_sqrt"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_menu"
-        android:text="@string/sqrt"
-        android:textColor="@color/green"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@id/guideline3"
-        app:layout_constraintEnd_toStartOf="@id/button_percent"
-        app:layout_constraintStart_toEndOf="@id/button_erase"
-        app:layout_constraintTop_toTopOf="@id/guideline2" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_percent"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_menu"
-        android:text="@string/percentage_sign"
-        android:textColor="@color/green"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toStartOf="@+id/button_divide"
-        app:layout_constraintStart_toEndOf="@id/button_sqrt"
+        app:layout_constraintEnd_toEndOf="@+id/button7"
+        app:layout_constraintStart_toStartOf="@+id/button7"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -112,8 +84,8 @@
         android:textColor="@color/green"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_percent"
+        app:layout_constraintEnd_toEndOf="@+id/button_multiply"
+        app:layout_constraintStart_toStartOf="@+id/button_multiply"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <androidx.appcompat.widget.AppCompatButton
