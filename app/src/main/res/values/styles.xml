@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalculatorButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/button_menu</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="CalculatorOperationButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="CalculatorEqualButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:background">@drawable/button_equal_menu</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CalculatorEraseButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:textColor">@color/red</item>
+    </style>
+</resources>

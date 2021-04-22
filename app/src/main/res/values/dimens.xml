@@ -2,4 +2,5 @@
 <resources>
     <dimen name="text_size">35sp</dimen>
     <dimen name="text_view_size">0dp</dimen>
+    <dimen name="button_corners">5dp</dimen>
 </resources>
