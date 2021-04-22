@@ -13,4 +13,6 @@
     <color name="button_pressed_color">#e0e0e0</color>
     <color name="button_equal_color">#00c853</color>
     <color name="button_equal_pressed_color">#4caf50</color>
+    <color name="primary_color">#78909c</color>
+    <color name="color_primary_variant">#607d8b</color>
 </resources>

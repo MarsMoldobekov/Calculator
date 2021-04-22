@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.53" />
+        app:layout_constraintGuide_percent="0.52" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -50,10 +50,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="@dimen/text_view_size"
-        android:layout_height="@dimen/text_view_size"
+        android:layout_width="@dimen/full_size"
+        android:layout_height="@dimen/full_size"
         android:gravity="top|end"
         android:textSize="@dimen/text_size"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/button_multiply"
         app:layout_constraintStart_toStartOf="@+id/button_erase"

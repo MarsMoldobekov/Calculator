@@ -2,8 +2,8 @@
 <resources>
 
     <style name="CalculatorButtonStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">@dimen/full_size</item>
+        <item name="android:layout_height">@dimen/full_size</item>
         <item name="android:background">@drawable/button_menu</item>
         <item name="android:textSize">@dimen/text_size</item>
         <item name="android:textColor">@color/black</item>
