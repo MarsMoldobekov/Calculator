@@ -50,8 +50,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="@dimen/full_size"
-        android:layout_height="@dimen/full_size"
+        android:layout_width="@dimen/text_view_size"
+        android:layout_height="@dimen/text_view_size"
         android:gravity="top|end"
         android:textSize="@dimen/text_size"
         android:textColor="@color/black"

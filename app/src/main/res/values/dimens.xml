@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_size">35sp</dimen>
-    <dimen name="full_size">0dp</dimen>
-    <dimen name="button_corners">5dp</dimen>
+    <dimen name="text_view_size">0dp</dimen>
+    <dimen name="button_corners">40dp</dimen>
+    <dimen name="button_size">80dp</dimen>
 </resources>
