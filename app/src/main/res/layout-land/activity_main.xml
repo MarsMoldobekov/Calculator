@@ -322,7 +322,7 @@
         android:layout_width="@dimen/text_view_size"
         android:layout_height="@dimen/text_view_size"
         android:gravity="top|end"
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="@dimen/text_size"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="@+id/button_delete"
