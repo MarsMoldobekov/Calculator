@@ -3,7 +3,6 @@ package com.example.calculator.domain;
 import com.example.calculator.enums.DigitButtonTypes;
 import com.example.calculator.enums.OperationButtonTypes;
 
-import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class CalculatorImplementation implements Calculator {
@@ -93,7 +92,6 @@ public class CalculatorImplementation implements Calculator {
     @Override
     public String calculate() {
         String temp = stringBuilder.toString();
-        Expression expression;
         double result;
 
         try {

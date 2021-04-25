@@ -12,12 +12,9 @@
     <string name="zero">0</string>
     <string name="dot">.</string>
     <string name="erase_sign">C</string>
-    <string name="number_sign">+/-</string>
-    <string name="abs_sign">abs</string>
     <string name="equal_sign">=</string>
     <string name="plus_sign">+</string>
     <string name="minus_sign">-</string>
     <string name="division_sign">/</string>
     <string name="multiplication_sign">*</string>
-    <string name="sqrt">√</string>
 </resources>
