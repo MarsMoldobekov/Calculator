@@ -232,35 +232,17 @@
         style="@style/CalculatorButtonStyle"
         android:text="@string/e"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintStart_toEndOf="@+id/button_pi"
+        app:layout_constraintEnd_toStartOf="@+id/button_ln"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_pi"
         style="@style/CalculatorButtonStyle"
         android:text="@string/pi"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toStartOf="@+id/button_e"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_cotangent"
-        style="@style/CalculatorButtonStyle"
-        android:text="@string/cotangent"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
-        app:layout_constraintEnd_toStartOf="@+id/button_square"
+        app:layout_constraintEnd_toStartOf="@+id/button_log2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_square"
-        style="@style/CalculatorButtonStyle"
-        android:text="@string/square_number"
-        app:layout_constraintBottom_toTopOf="@+id/guideline9"
-        app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintStart_toEndOf="@+id/button_cotangent"
         app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -268,7 +250,7 @@
         style="@style/CalculatorButtonStyle"
         android:text="@string/tangent"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toStartOf="@+id/button_sqrt"
+        app:layout_constraintEnd_toStartOf="@+id/button_log10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
@@ -276,27 +258,27 @@
         android:id="@+id/button_sqrt"
         style="@style/CalculatorButtonStyle"
         android:text="@string/sqrt_sign"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintStart_toEndOf="@+id/button_tangent"
-        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+        app:layout_constraintStart_toEndOf="@+id/button_sine"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_cbrt"
+        style="@style/CalculatorButtonStyle"
+        android:text="@string/cbrt_sign"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintStart_toEndOf="@+id/button_cosine"
+        app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_cosine"
         style="@style/CalculatorButtonStyle"
         android:text="@string/cosine"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_percent"
+        app:layout_constraintEnd_toStartOf="@+id/button_cbrt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline11" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_percent"
-        style="@style/CalculatorButtonStyle"
-        android:text="@string/percent_sign"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintStart_toEndOf="@+id/button_cosine"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -304,18 +286,36 @@
         style="@style/CalculatorButtonStyle"
         android:text="@string/sine"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toStartOf="@+id/button_abs"
+        app:layout_constraintEnd_toStartOf="@+id/button_sqrt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_abs"
+        android:id="@+id/button_ln"
         style="@style/CalculatorButtonStyle"
-        android:text="@string/abs_sign"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        android:text="@string/ln"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintStart_toEndOf="@+id/button_sine"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+        app:layout_constraintStart_toEndOf="@+id/button_e"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_log2"
+        style="@style/CalculatorButtonStyle"
+        android:text="@string/log2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintStart_toEndOf="@+id/button_pi"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_log10"
+        style="@style/CalculatorButtonStyle"
+        android:text="@string/log10"
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintStart_toEndOf="@+id/button_tangent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <TextView
         android:id="@+id/textView"
