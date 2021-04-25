@@ -1,5 +1,7 @@
 package com.example.calculator.domain;
 
+import android.os.Parcelable;
+
 import com.example.calculator.enums.BracketButtonTypes;
 import com.example.calculator.enums.DigitButtonTypes;
 import com.example.calculator.enums.IrrationalNumberTypes;
@@ -8,7 +10,7 @@ import com.example.calculator.enums.OperationButtonTypes;
 import com.example.calculator.enums.RootTypes;
 import com.example.calculator.enums.TrigonometricFunctionTypes;
 
-public interface Calculator {
+public interface Calculator extends Parcelable {
     String onDigitButtonsPressed(DigitButtonTypes type);
     String onBracketButtonsPressed(BracketButtonTypes type);
     String onDeleteButtonPressed();

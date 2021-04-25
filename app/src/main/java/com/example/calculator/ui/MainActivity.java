@@ -3,6 +3,7 @@ package com.example.calculator.ui;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.calculator.R;
@@ -21,6 +22,9 @@ import com.example.calculator.ui.listeners.OnRootButtonsClickListener;
 import com.example.calculator.ui.listeners.OnTrigonometricFunctionButtonsClickListener;
 
 public class MainActivity extends AppCompatActivity implements CalculatorView {
+    private final static String PRESENTER_KEY = "PRESENTER_KEY";
+    private final static String TEXT_VIEW_KEY = "TEXT_VIEW_KEY";
+    private CalculatorPresenter calculatorPresenter;
     private TextView textView;
 
     @Override
@@ -29,16 +33,19 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textView);
 
-        CalculatorPresenter presenter = new CalculatorPresenter(
-                this, new CalculatorImplementation()
-        );
+        if (savedInstanceState == null) {
+            calculatorPresenter = new CalculatorPresenter(this, new CalculatorImplementation());
+        } else {
+            calculatorPresenter = savedInstanceState.getParcelable(PRESENTER_KEY);
+            calculatorPresenter.setCalculatorView(this);
+        }
 
         final OnDigitButtonsClickListener onDigitButtonsClickListener =
-                new OnDigitButtonsClickListener(presenter);
+                new OnDigitButtonsClickListener(calculatorPresenter);
         final OnOperationButtonsClickListener onOperationButtonsClickListener =
-                new OnOperationButtonsClickListener(presenter);
+                new OnOperationButtonsClickListener(calculatorPresenter);
         final OnBracketButtonsClickListener onBracketButtonsClickListener =
-                new OnBracketButtonsClickListener(presenter);
+                new OnBracketButtonsClickListener(calculatorPresenter);
 
         findViewById(R.id.button0).setOnClickListener(onDigitButtonsClickListener);
         findViewById(R.id.button1).setOnClickListener(onDigitButtonsClickListener);
@@ -60,30 +67,30 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         findViewById(R.id.button_open_bracket).setOnClickListener(onBracketButtonsClickListener);
 
         findViewById(R.id.button_erase).setOnClickListener(
-                new OnEraseButtonClickListener(presenter)
+                new OnEraseButtonClickListener(calculatorPresenter)
         );
 
         findViewById(R.id.button_equal).setOnClickListener(
-                new OnEqualButtonClickListener(presenter)
+                new OnEqualButtonClickListener(calculatorPresenter)
         );
 
         findViewById(R.id.button_dot).setOnClickListener(
-                new OnDotButtonClickListener(presenter)
+                new OnDotButtonClickListener(calculatorPresenter)
         );
 
         findViewById(R.id.button_delete).setOnClickListener(
-                new OnDeleteButtonClickListener(presenter)
+                new OnDeleteButtonClickListener(calculatorPresenter)
         );
 
         if (getResources().getBoolean(R.bool.isLandscape)) {
             final OnTrigonometricFunctionButtonsClickListener onTrigonometricFunctionButtonsClickListener =
-                    new OnTrigonometricFunctionButtonsClickListener(presenter);
+                    new OnTrigonometricFunctionButtonsClickListener(calculatorPresenter);
             final OnIrrationalNumberButtonsClickListener onIrrationalNumberButtonsClickListener =
-                    new OnIrrationalNumberButtonsClickListener(presenter);
+                    new OnIrrationalNumberButtonsClickListener(calculatorPresenter);
             final OnLogarithmicFunctionButtonsClickListener onLogarithmicFunctionButtonsClickListener =
-                    new OnLogarithmicFunctionButtonsClickListener(presenter);
+                    new OnLogarithmicFunctionButtonsClickListener(calculatorPresenter);
             final OnRootButtonsClickListener onRootButtonsClickListener =
-                    new OnRootButtonsClickListener(presenter);
+                    new OnRootButtonsClickListener(calculatorPresenter);
 
             findViewById(R.id.button_cosine).setOnClickListener(onTrigonometricFunctionButtonsClickListener);
             findViewById(R.id.button_sine).setOnClickListener(onTrigonometricFunctionButtonsClickListener);
@@ -104,5 +111,20 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     @Override
     public void display(String expr) {
         textView.setText(expr);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelable(PRESENTER_KEY, calculatorPresenter);
+        outState.putString(TEXT_VIEW_KEY, textView.getText().toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        calculatorPresenter = savedInstanceState.getParcelable(PRESENTER_KEY);
+        calculatorPresenter.setCalculatorView(this);
+        display(savedInstanceState.getString(TEXT_VIEW_KEY));
     }
 }

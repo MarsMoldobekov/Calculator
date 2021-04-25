@@ -1,5 +1,9 @@
 package com.example.calculator.domain;
 
+import android.os.Parcel;
+
+import androidx.annotation.NonNull;
+
 import com.example.calculator.enums.BracketButtonTypes;
 import com.example.calculator.enums.DigitButtonTypes;
 import com.example.calculator.enums.IrrationalNumberTypes;
@@ -17,8 +21,24 @@ public class CalculatorImplementation implements Calculator {
         stringBuilder = new StringBuilder();
     }
 
+    protected CalculatorImplementation(@NonNull Parcel in) {
+        stringBuilder = new StringBuilder(in.readString());
+    }
+
+    public static final Creator<CalculatorImplementation> CREATOR = new Creator<CalculatorImplementation>() {
+        @Override
+        public CalculatorImplementation createFromParcel(@NonNull Parcel in) {
+            return new CalculatorImplementation(in);
+        }
+
+        @Override
+        public CalculatorImplementation[] newArray(int size) {
+            return new CalculatorImplementation[size];
+        }
+    };
+
     @Override
-    public String onDigitButtonsPressed(DigitButtonTypes type) {
+    public String onDigitButtonsPressed(@NonNull DigitButtonTypes type) {
         switch (type) {
             case ZERO:
                 stringBuilder.append(0);
@@ -56,7 +76,7 @@ public class CalculatorImplementation implements Calculator {
     }
 
     @Override
-    public String onBracketButtonsPressed(BracketButtonTypes type) {
+    public String onBracketButtonsPressed(@NonNull BracketButtonTypes type) {
         switch (type) {
             case CLOSE:
                 stringBuilder.append(')');
@@ -81,7 +101,7 @@ public class CalculatorImplementation implements Calculator {
     }
 
     @Override
-    public String onIrrationalNumberButtonsPressed(IrrationalNumberTypes type) {
+    public String onIrrationalNumberButtonsPressed(@NonNull IrrationalNumberTypes type) {
         switch (type) {
             case PI:
                 stringBuilder.append("pi");
@@ -95,7 +115,7 @@ public class CalculatorImplementation implements Calculator {
     }
 
     @Override
-    public String onLogarithmicFunctionButtonsPressed(LogarithmicFunctionTypes type) {
+    public String onLogarithmicFunctionButtonsPressed(@NonNull LogarithmicFunctionTypes type) {
         switch (type) {
             case LN:
                 stringBuilder.append("log(");
@@ -112,7 +132,7 @@ public class CalculatorImplementation implements Calculator {
     }
 
     @Override
-    public String onRootButtonsPressed(RootTypes type) {
+    public String onRootButtonsPressed(@NonNull RootTypes type) {
         switch (type) {
             case SQRT:
                 stringBuilder.append("sqrt(");
@@ -126,7 +146,7 @@ public class CalculatorImplementation implements Calculator {
     }
 
     @Override
-    public String onTrigonometricFunctionButtonsPressed(TrigonometricFunctionTypes type) {
+    public String onTrigonometricFunctionButtonsPressed(@NonNull TrigonometricFunctionTypes type) {
         switch (type) {
             case COSINE:
                 stringBuilder.append("cos(");
@@ -149,7 +169,7 @@ public class CalculatorImplementation implements Calculator {
     }
 
     @Override
-    public String onOperationButtonsPressed(OperationButtonTypes type) {
+    public String onOperationButtonsPressed(@NonNull OperationButtonTypes type) {
         switch (type) {
             case ADD:
                 return addOperation("+");
@@ -164,7 +184,7 @@ public class CalculatorImplementation implements Calculator {
         }
     }
 
-    private String addOperation(String operation) {
+    private String addOperation(@NonNull String operation) {
         if (isNotEmpty() && !isPreviousStringOperation()) {
             stringBuilder.append(operation);
         }
@@ -209,5 +229,15 @@ public class CalculatorImplementation implements Calculator {
     private boolean containsDot() {
         String temp = stringBuilder.toString();
         return temp.contains(".");
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(stringBuilder.toString());
     }
 }
