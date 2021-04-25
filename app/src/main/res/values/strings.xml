@@ -17,4 +17,17 @@
     <string name="minus_sign">-</string>
     <string name="division_sign">/</string>
     <string name="multiplication_sign">*</string>
+    <string name="sqrt_sign">√</string>
+    <string name="percent_sign">%</string>
+    <string name="delete_sign"><![CDATA[<—]]></string>
+    <string name="close_bracket">)</string>
+    <string name="open_bracket">(</string>
+    <string name="cosine">cos</string>
+    <string name="sine">sin</string>
+    <string name="tangent">tg</string>
+    <string name="cotangent">ctg</string>
+    <string name="abs_sign">|x|</string>
+    <string name="square_number">x^2</string>
+    <string name="pi">𝛑</string>
+    <string name="e">e</string>
 </resources>
