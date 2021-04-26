@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import com.example.calculator.MainSettings;
+import com.example.calculator.ui.preferences.MainSettings;
 import com.example.calculator.R;
 import com.example.calculator.domain.CalculatorImplementation;
 import com.example.calculator.presenter.CalculatorPresenter;

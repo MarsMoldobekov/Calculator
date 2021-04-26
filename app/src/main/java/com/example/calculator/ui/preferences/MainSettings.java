@@ -1,10 +1,10 @@
-package com.example.calculator;
+package com.example.calculator.ui.preferences;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.calculator.ui.preferences.MainPreference;
+import com.example.calculator.R;
 
 public class MainSettings extends AppCompatActivity {
 
