@@ -1,11 +1,17 @@
 package com.example.calculator.ui;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
+import com.example.calculator.MainSettings;
 import com.example.calculator.R;
 import com.example.calculator.domain.CalculatorImplementation;
 import com.example.calculator.presenter.CalculatorPresenter;
@@ -24,6 +30,7 @@ import com.example.calculator.ui.listeners.OnTrigonometricFunctionButtonsClickLi
 public class MainActivity extends AppCompatActivity implements CalculatorView {
     private final static String PRESENTER_KEY = "PRESENTER_KEY";
     private final static String TEXT_VIEW_KEY = "TEXT_VIEW_KEY";
+    private SharedPreferences sharedPreferences;
     private CalculatorPresenter calculatorPresenter;
     private TextView textView;
 
@@ -32,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textView);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (savedInstanceState == null) {
             calculatorPresenter = new CalculatorPresenter(this, new CalculatorImplementation());
@@ -109,6 +117,13 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuItem menuItem = menu.add(0, 1, 0, "Settings");
+        menuItem.setIntent(new Intent(this, MainSettings.class));
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public void display(String expr) {
         textView.setText(expr);
     }
@@ -126,5 +141,20 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         calculatorPresenter = savedInstanceState.getParcelable(PRESENTER_KEY);
         calculatorPresenter.setCalculatorView(this);
         display(savedInstanceState.getString(TEXT_VIEW_KEY));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean isDarkTheme = sharedPreferences.getBoolean(
+                getResources().getString(R.string.switch_preference_key),
+                false
+        );
+
+        if (isDarkTheme) {
+            //TODO --- change theme
+        } else {
+            //do nothing
+        }
     }
 }

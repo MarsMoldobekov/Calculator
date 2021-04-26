@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="@bool/default_value"
+        android:key="@string/switch_preference_key"
+        android:title="@string/switch_preference_title" />
+</PreferenceScreen>

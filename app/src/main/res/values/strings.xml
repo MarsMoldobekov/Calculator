@@ -30,4 +30,6 @@
     <string name="ln">ln</string>
     <string name="log2">log2</string>
     <string name="log10">log10</string>
+    <string name="switch_preference_key">Theme</string>
+    <string name="switch_preference_title">Dark Theme</string>
 </resources>
