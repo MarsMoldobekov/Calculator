@@ -17,4 +17,19 @@
     <string name="minus_sign">-</string>
     <string name="division_sign">/</string>
     <string name="multiplication_sign">*</string>
+    <string name="sqrt_sign">√</string>
+    <string name="cbrt_sign">∛</string>
+    <string name="delete_sign"><![CDATA[<—]]></string>
+    <string name="close_bracket">)</string>
+    <string name="open_bracket">(</string>
+    <string name="cosine">cos</string>
+    <string name="sine">sin</string>
+    <string name="tangent">tan</string>
+    <string name="pi">𝛑</string>
+    <string name="e">e</string>
+    <string name="ln">ln</string>
+    <string name="log2">log2</string>
+    <string name="log10">log10</string>
+    <string name="switch_preference_key">Theme</string>
+    <string name="switch_preference_title">Dark Theme</string>
 </resources>

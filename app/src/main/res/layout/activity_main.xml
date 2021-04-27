@@ -53,10 +53,10 @@
         android:layout_width="@dimen/text_view_size"
         android:layout_height="@dimen/text_view_size"
         android:gravity="top|end"
+        android:textColor="@color/text_color"
         android:textSize="@dimen/text_size"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="@+id/button_multiply"
+        app:layout_constraintEnd_toEndOf="@+id/button_delete"
         app:layout_constraintStart_toStartOf="@+id/button_erase"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         tools:text="There will be formulas" />
@@ -66,8 +66,35 @@
         style="@style/CalculatorEraseButtonStyle"
         android:text="@string/erase_sign"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/button_open_bracket"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_open_bracket"
+        style="@style/CalculatorOperationButtonStyle"
+        android:text="@string/open_bracket"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/button_close_bracket"
+        app:layout_constraintStart_toEndOf="@+id/button_erase"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_close_bracket"
+        style="@style/CalculatorOperationButtonStyle"
+        android:text="@string/close_bracket"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/button_delete"
+        app:layout_constraintStart_toEndOf="@+id/button_open_bracket"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_delete"
+        style="@style/CalculatorOperationButtonStyle"
+        android:text="@string/delete_sign"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_close_bracket"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <androidx.appcompat.widget.AppCompatButton

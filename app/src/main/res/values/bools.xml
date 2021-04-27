@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="isLandscape">false</bool>
+    <bool name="text_all_caps">false</bool>
+    <bool name="default_value">false</bool>
+</resources>
